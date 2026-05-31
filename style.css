@@ -1,0 +1,218 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --ink: #26333d;
+    --blue: #4f8fbe;
+    --blue-dark: #2e648f;
+    --yellow: #ffe58a;
+    --yellow-soft: #fff7c8;
+    --pink: #ffd9e6;
+    --mint: #dff5ea;
+    --paper: rgba(255, 255, 255, 0.92);
+    --line: rgba(84, 126, 156, 0.22);
+    --shadow: 0 16px 38px rgba(70, 105, 135, 0.18);
+}
+
+body {
+    margin: 0;
+    padding: 34px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: var(--ink);
+    background:
+        linear-gradient(135deg, rgba(255, 245, 169, 0.72), rgba(214, 239, 255, 0.82)),
+        linear-gradient(45deg, #fffdf7, #eef8ff);
+}
+
+.page-header,
+.panel {
+    width: min(1120px, 100%);
+    margin: 0 auto 26px;
+}
+
+.page-header {
+    padding: 26px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    margin: 0 0 8px;
+    color: #335f83;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.05;
+}
+
+h2 {
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    color: #335f83;
+    border-bottom: 3px solid var(--yellow);
+}
+
+h3 {
+    margin: 20px 0 10px;
+    color: #527894;
+}
+
+a {
+    color: var(--blue-dark);
+    font-weight: 700;
+}
+
+.deploy-link {
+    display: inline-block;
+    margin: 12px 0 0;
+    padding: 10px 14px;
+    border-left: 5px solid var(--yellow);
+    border-radius: 8px;
+    background: #fffdf1;
+}
+
+.panel {
+    position: relative;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-top: 8px solid var(--mint);
+    border-radius: 8px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+}
+
+.panel:nth-of-type(2) {
+    border-top-color: var(--pink);
+}
+
+.panel:nth-of-type(3) {
+    border-top-color: var(--yellow);
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+label,
+.wide-label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-weight: 700;
+    color: #42677f;
+}
+
+input,
+select,
+textarea,
+button {
+    font: inherit;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 2px solid #d8ecff;
+    border-radius: 8px;
+    background: #fffef9;
+    color: var(--ink);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 4px solid rgba(255, 229, 138, 0.45);
+    border-color: var(--blue);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+button {
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #ffef9e, #ffd96a);
+    color: #315a78;
+    cursor: pointer;
+    font-weight: 800;
+    box-shadow: 0 8px 18px rgba(90, 120, 145, 0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(180deg, #e6f5ff, #cdeaff);
+    box-shadow: 0 10px 22px rgba(90, 120, 145, 0.22);
+}
+
+.message {
+    min-height: 50px;
+    margin-top: 12px;
+    padding: 14px 16px;
+    border-left: 6px solid var(--blue);
+    border-radius: 8px;
+    background: var(--yellow-soft);
+    color: #35505f;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.message.error {
+    border-left-color: #d05b5b;
+    background: #fff1f0;
+    color: #7a271a;
+}
+
+.plot {
+    width: 100%;
+    min-height: 520px;
+    margin-top: 18px;
+    overflow: hidden;
+    border: 1px solid #e1edf7;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+strong {
+    color: #335f83;
+}
+
+@media (max-width: 680px) {
+    body {
+        padding: 16px;
+    }
+
+    .page-header,
+    .panel {
+        padding: 20px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .plot {
+        min-height: 430px;
+    }
+}

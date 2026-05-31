@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Economics Probability Modeling</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>Global Economics Probability Modeling</h1>
+        <p>Interactive continuous probability modeling for C8 simulation, C9 data fitting, and C10 report support.</p>
+        <p class="deploy-link">
+            GitHub Pages link:
+            <a id="g https://fn28xyd8wd-ctrl.github.io/global-economics-project/">Add your deployed website URL here</a>
+        </p>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Simulation Mode (C8)</h2>
+
+            <div class="controls-grid">
+                <label>
+                    Distribution
+                    <select id="distribution">
+                        <option value="uniform">Uniform</option>
+                        <option value="triangular">Triangular</option>
+                        <option value="linear">Linear</option>
+                        <option value="piecewise">Piecewise</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="parameterInputs" class="controls-grid"></div>
+
+            <h3>Probability Region</h3>
+            <div class="controls-grid">
+                <label>
+                    Type
+                    <select id="probabilityType">
+                        <option value="below">P(X &lt; point)</option>
+                        <option value="above">P(X &gt; point)</option>
+                        <option value="between">P(lower &lt; X &lt; upper)</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="boundInputs" class="controls-grid"></div>
+            <p id="result" class="message">Change a parameter to generate the graph.</p>
+            <div id="graph" class="plot"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Data Modeling Mode (C9)</h2>
+
+            <div class="controls-grid">
+                <label>
+                    Upload CSV/TXT data
+                    <input id="dataFile" type="file" accept=".csv,.txt">
+                </label>
+                <label>
+                    Fit model
+                    <select id="fitModel">
+                        <option value="normal">Normal</option>
+                        <option value="uniform">Uniform</option>
+                        <option value="triangular">Triangular</option>
+                        <option value="linear">Linear</option>
+                        <option value="piecewise">Piecewise uniform</option>
+                    </select>
+                </label>
+            </div>
+
+            <label class="wide-label">
+                Enter numerical data separated by commas, spaces, or new lines
+                <textarea id="dataInput" rows="7">4.8, 5.1, 5.3, 5.0, 4.9, 5.4, 5.2, 4.7, 5.5, 5.1</textarea>
+            </label>
+
+            <div class="button-row">
+                <button type="button" data-dataset="uniform">Load uniform-like test data</button>
+                <button type="button" data-dataset="triangular">Load triangular-like test data</button>
+                <button type="button" data-dataset="normal">Load normal-like test data</button>
+                <button type="button" id="fitButton">Fit Model</button>
+            </div>
+
+            <p id="fitResult" class="message">Choose a model and fit the data.</p>
+            <div id="dataGraph" class="plot"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
